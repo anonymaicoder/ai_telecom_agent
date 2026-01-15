@@ -178,6 +178,7 @@ Tariffs context:
 
 Customer usage data: {user_data}
 
+# Calculate time for response
 Task: {query}
 """.strip()
 
@@ -194,7 +195,7 @@ Task: {query}
 
     return response["message"]["content"], (end_time - start_time), prompt_version
 
-# 
+# Format of time
 def format_duration(seconds: float) -> str:
     if seconds < 60:
         return f"{seconds:.2f} seconds"
@@ -232,3 +233,4 @@ def log_result(model_source, model_name, tariff_source, prompt_version, query,us
         else:
             f.write(f"Clarity rating: {clarity}\n")
         f.write("-" * 40 + "\n")
+
